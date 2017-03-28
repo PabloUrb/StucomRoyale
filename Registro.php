@@ -17,7 +17,25 @@ and open the template in the editor.
     </from>
     <?php
     require_once 'bbdduser.php';
-    
+    if (isset($_POST["login"])) {
+        $username = $_POST["user"];
+        $password = $_POST["password"];
+        if (verificarUser($username, $password)) {
+            session_start();
+            $_SESSION["user"] = $username;
+            $tipo = getTipoUsuario($username);
+            $_SESSION["type"] = $tipo;
+            if ($tipo = "usuario") {
+                header("Location: UserHome.php");
+            } else if ($tipo = "admin") {
+                header("Location: AdminHome.php");
+            } else {
+                echo "tipo de usuario incorrecto";
+            }
+        }else {
+            echo "Nombre de usuario o contraseña incorrectos";
+            }
+    }
     ?>
-    </body>
+</body>
 </html>
