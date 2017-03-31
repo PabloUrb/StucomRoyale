@@ -7,9 +7,11 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="algo.css" rel="stylesheet" type="text/css"/>
         <title>Registrate</title>
     </head>
     <body>
+        <div>
     <from action="" method="POST">
         <p>Usuario: <input type="text" name="user"></p>
         <p>Contraseña: <input type="password" name="password"></p>
@@ -36,6 +38,6 @@ and open the template in the editor.
             echo "Nombre de usuario o contraseña incorrectos";
             }
     }
-    ?>
+    ?></div>
 </body>
 </html>

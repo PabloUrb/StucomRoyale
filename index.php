@@ -13,7 +13,7 @@ and open the template in the editor.
     <body>
         <div>
             <h2>Stukemon Royale</h2>
-            <a href="Registro.php">Registro</a>
+            <a href="Registro.php">Registro</a><br>
         </div>
     </body>
 </html>
