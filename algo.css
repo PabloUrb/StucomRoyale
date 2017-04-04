@@ -17,7 +17,7 @@ body>div{
     border: 1px;
     border: solid;
     border-radius: 15px;
-    width: 31%;
+    margi:auto;
     margin: 0 auto;
     background-color:#0066cc
 }

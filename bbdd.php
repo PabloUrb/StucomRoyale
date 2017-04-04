@@ -7,8 +7,8 @@ function conectar($database) {
     return $con;
 }
 
-function desconectar(){
+function desconectar($conexion) {
     mysqli_close($conexion);
 }
 
-?>
+

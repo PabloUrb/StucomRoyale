@@ -8,14 +8,22 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <link href="algo.css" rel="stylesheet" type="text/css"/>
-        <title>Indice</title>
+        <title></title>
     </head>
     <body>
         <div>
-            <h2>Stukemon Royale</h2>
-            
-            <a href="Registro.php">Registro</a><br>
-            <a href="Login.php">Loguearte</a>
+        <?php
+        session_start();
+        if(isset($_SESSION["user"])){
+            $username = $_SESSION["user"];
+            echo "<h2> hola $username</h2>";
+            ?>
+        <p><a href="ModificarUser.php">Modificar perfil</a></p>
+        <?php
+        }else{
+            echo "No estas autentificado.";
+        }
+        ?>
         </div>
     </body>
 </html>

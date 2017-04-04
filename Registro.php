@@ -1,43 +1,41 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
         <meta charset="UTF-8">
         <link href="algo.css" rel="stylesheet" type="text/css"/>
-        <title>Registrate</title>
+        <title>Nuevo Usuario</title>
     </head>
     <body>
         <div>
-    <from action="" method="POST">
-        <p>Usuario: <input type="text" name="user"></p>
-        <p>Contraseña: <input type="password" name="password"></p>
-        <input type="submit" name="login" value="Login">
-    </from>
-    <?php
-    require_once 'bbdduser.php';
-    if (isset($_POST["login"])) {
-        $username = $_POST["user"];
-        $password = $_POST["password"];
-        if (verificarUser($username, $password)) {
-            session_start();
-            $_SESSION["user"] = $username;
-            $tipo = getTipoUsuario($username);
-            $_SESSION["type"] = $tipo;
-            if ($tipo = "usuario") {
-                header("Location: UserHome.php");
-            } else if ($tipo = "admin") {
-                header("Location: AdminHome.php");
-            } else {
-                echo "tipo de usuario incorrecto";
+            <h1>Registrate!!</h1>
+            <form action="" method="POST">
+                <p>Nombre de usuario: <input type="text" name="nombre"></p>
+                <p>Password: <input type="password" name="pass"></p>
+                <p>Confirmación Password: <input type="password" name="pass2"></p>
+                <input type="submit" value="Registrarse" name="alta">
+            </form>
+            <?php
+            require_once 'bbdduser.php';
+            // Si han pulsado el botón registramos el usuario
+            if (isset($_POST["alta"])) {
+                // Recogemos el nombre de usuario
+                $nusuario = $_POST["nombre"];
+                // Comprobamos si ya existe
+                if (existeUsuario($nusuario) == true) {
+                    echo "<p>Ya existe ese nombre de usuario en la bbdd</p>";
+                } else {
+                    // Recogemos el resto de datos
+                    $pass = $_POST["pass"];
+                    $pass2 = $_POST["pass2"];
+                    // Registramos el usuario en la bbdd
+                    insertUser($nusuario, $pass, $pass2, "usuario");
+                }
             }
-        }else {
-            echo "Nombre de usuario o contraseña incorrectos";
-            }
-    }
-    ?></div>
-</body>
+            ?>
+            <p><a href="index.php">Inicio</a></p>
+        </div>
+    </body>
 </html>
+
+
+
