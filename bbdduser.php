@@ -33,11 +33,12 @@ function getUser($username) {
     return $resultado;
 }
 
-function updateUser($username, $pass, $email) {
+function updateUser($username, $pass) {
     $con = conectar("royal");
-    $update = "update user set password='$pass', email='$email' where username='$username'";
+    $update = "update user set password='$pass' where username='$username'";
     if (mysqli_query($con, $update)) {
         echo "<p>Datos del perfil modificiados</p>";
+        echo "<a href='index.php'>menu principal</a>";
     } else {
         echo mysqli_error($con);
     }
@@ -64,7 +65,7 @@ function existeUsuario($nombre_usuario) {
 function insertUser($nusuario, $pass, $pass2, $tipo) {
     $conexion = conectar("royal");
     $insert = "insert into user values "
-            . "('$nusuario', '$pass', '1', '0','1')";
+            . "('$nusuario', '$pass', '0', '0','1')";
     if (mysqli_query($conexion, $insert)) {
         echo "<p>Usuario dado de alta</p>";
     } else {

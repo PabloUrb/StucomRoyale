@@ -8,26 +8,30 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <link href="algo.css" rel="stylesheet" type="text/css"/>
-        <title></title>
+        <title>Home Page Administrator</title>
     </head>
     <body>
-        <?php
-        session_start();
-        if (isset($_SESSION["user"])){
-        if (isset($_SESSION["user"])){
-            $username=$_SESSION["user"];
-            echo "<h2> hola $username </h2>";
+        <div>
+            <?php
+            session_start();
+            // Nos aseguramos de que haya un usuario autentificado
+            if (isset($_SESSION["user"])) {
+                if ($_SESSION["type"] == "1") {
+                    // Cogemos la variable de sesión y saludamos al usuario
+                    $username = $_SESSION["user"];
+                    echo "<h2>Hola $username!!</h2>";
+                    ?>
+                    <p><a href="NewUserAdmin.php">Alta de usuarios</a></p>
+                    <p><a href="NewGenre.php">Alta de géneros</a></p>
+                    <p><a href="NewGame.php">Alta de juegos</a></p>
+                    <?php
+                } else {
+                    echo "No eres administrador.";
+                }
+            } else {
+                echo "No estás autentificado.";
+            }
             ?>
-        <p><a href="NewUserAdmin.php">Alta de usuarios</a></p>
-        <p><a href="NewGenre.php">Alta de generos</a></p>
-        <?php
-        }else{
-            echo "No eres administrador.";
-        }
-        }else{
-            echo "No estas eutentificado.";
-        }
-        
-        ?>
+        </div>
     </body>
 </html>

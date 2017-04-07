@@ -27,8 +27,12 @@
                     // Recogemos el resto de datos
                     $pass = $_POST["pass"];
                     $pass2 = $_POST["pass2"];
-                    // Registramos el usuario en la bbdd
-                    insertUser($nusuario, $pass, $pass2, "usuario");
+                    if ($pass == $pass2) {
+                        // Registramos el usuario en la bbdd
+                        insertUser($nusuario, $pass, $pass2, "usuario");
+                    } else {
+                        echo "<p>Las contraseñas no coinciden</p>";
+                    }
                 }
             }
             ?>

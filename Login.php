@@ -5,7 +5,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        
+        <link href="algo.css" rel="stylesheet" type="text/css"/>
         <title>Login</title>
     </head>
     <body>
@@ -27,10 +27,10 @@
                 $_SESSION["user"] = $username;
                 $tipo = getTipoUsuario($username);
                 $_SESSION["type"] = $tipo;
-                if ($tipo == "usuario") {
+                if ($tipo == "0") {
                     // Dirigimos al usuario a su homePage.
                     header("Location: UserHome.php");
-                } else if ($tipo == "admin") {
+                } else if ($tipo == "1") {
                     // Dirigimos a la página de administrador
                     header("Location: AdminHome.php");
                 } else { // Aquí no debería entrar nunca

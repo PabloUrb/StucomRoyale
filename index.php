@@ -15,7 +15,8 @@ and open the template in the editor.
             <h2>Stukemon Royale</h2>
             
             <a href="Registro.php">Registro</a><br>
-            <a href="Login.php">Loguearte</a>
+            <a href="Login.php">Loguearte</a><br>
+            <br>
         </div>
     </body>
 </html>
