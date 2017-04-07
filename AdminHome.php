@@ -21,7 +21,7 @@ and open the template in the editor.
                     $username = $_SESSION["user"];
                     echo "<h2>Hola $username!!</h2>";
                     ?>
-                    <p><a href="NewUserAdmin.php">Alta de usuarios</a></p>
+                    <p><a href="AltaCarta.php">Alta de cartas</a></p>
                     <p><a href="NewGenre.php">Alta de géneros</a></p>
                     <p><a href="NewGame.php">Alta de juegos</a></p>
                     <?php

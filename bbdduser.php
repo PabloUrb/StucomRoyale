@@ -85,3 +85,20 @@ function selectAllInfo($username) {
     // Devolvemos el resultado de la consulta
     return $resultado;
 }
+function existeCarta($carta) {
+    $conexion = conectar("royal");
+    $consulta = "select * from user where username='$nombre_usuario';";
+    // Ejecutamos la consulta
+    $resultado = mysqli_query($conexion, $consulta);
+    // Contamos cuantas filas tiene el resultado
+    $contador = mysqli_num_rows($resultado);
+    desconectar($conexion);
+    // Si devuelve 1 es que ya existe un usuario con ese nombre de usuario
+    // Si devuelve 0 no existe
+    if ($contador == 0) {
+        return false;
+    } else {
+        return true;
+    }
+    
+}

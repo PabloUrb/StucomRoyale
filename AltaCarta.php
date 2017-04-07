@@ -7,26 +7,30 @@ and open the template in the editor.
 <html>
     <head>
         <meta charset="UTF-8">
+        <link href="algo.css" rel="stylesheet" type="text/css"/>
         <title></title>
     </head>
     <body>
         <div>
-            <h1>Registrate!!</h1>
+            <h1>Crea una carta!!</h1>
             <form action="" method="POST">
-                <p>Nombre de usuario: <input type="text" name="nombre"></p>
-                <p>Password: <input type="password" name="pass"></p>
-                <p>Confirmación Password: <input type="password" name="pass2"></p>
-                <input type="submit" value="Registrarse" name="alta">
+                <p>Nombre de la carta: <input type="text" name="name"></p>
+                <p>Tipo: <input type="text" name="type"></p>
+                <p>Rareza: <input type="number" name="rarity"></p>
+                <p>Hitpoints: <input type="number" name="hitpoints"></p>
+                <p>Daño: <input type="number" name="damage"></p>
+                <p>Coste: <input type="number" name="cost"></p>
+                <input type="submit" value="Crear" name="alta">
             </form>
             <?php
             require_once 'bbdduser.php';
             // Si han pulsado el botón registramos el usuario
             if (isset($_POST["alta"])) {
                 // Recogemos el nombre de usuario
-                $nusuario = $_POST["nombre"];
+                $carta = $_POST["name"];
                 // Comprobamos si ya existe
-                if (existeUsuario($nusuario) == true) {
-                    echo "<p>Ya existe ese nombre de usuario en la bbdd</p>";
+                if (existeCarta($carta) == true) {
+                    echo "<p>Ya existe esa carta</p>";
                 } else {
                     // Recogemos el resto de datos
                     $pass = $_POST["pass"];
