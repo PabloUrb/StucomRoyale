@@ -19,7 +19,7 @@ and open the template in the editor.
             echo "<h2> Hola $username!!</h2>";
             ?>
         <p><a href="ModificarUser.php">Modificar contraseña</a></p>
-        <p><a href="ModificarUser.php">Ver perfil</a></p>
+        <p><a href="VerPerfil.php">Ver perfil</a></p>
         <p><a href="ModificarUser.php">Batalla</a></p>
         <?php
         }else{

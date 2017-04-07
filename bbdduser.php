@@ -73,3 +73,15 @@ function insertUser($nusuario, $pass, $pass2, $tipo) {
     }
     desconectar($conexion);
 }
+function selectAllInfo($username) {
+    // Primero conectamos con la BBDD
+    $con = conectar("royal");
+    // Definimos la consulta
+    $query = "select * from user where username='$username'";
+    // Ejecutamos la consulta, recogiendo el resultado
+    $resultado = mysqli_query($con, $query);
+    // desconectamos de la bbdd
+    desconectar($con);
+    // Devolvemos el resultado de la consulta
+    return $resultado;
+}
